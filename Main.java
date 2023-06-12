@@ -12,21 +12,7 @@ MyArraySizeException и MyArrayDataException и вывести результа�
 public class Main {
 	public static void main(String[] args) {
 		String[][] arr = {{"1", "1", "1", "1"}, {"1", "1", "1", "1"}, {"1", "1", "1", "1"}, {"1", "1", "1", "1"}};
-		fillArray(arr);
-	}
-
-	public static void checkSizeStringArray(String[][] array) {}
-
-	public static int[][] fillArray(String[][] array) {
-		int[][] resultArray = new int[4][4];
-		int sumElemsInArray = 0;
-		for (int i = 0; i < 4; i++) {
-			for (int j = 0; j < 4; j++) {
-				resultArray[i][j] = Integer.parseInt(array[i][j]);
-				sumElemsInArray += sumElemsInArray + resultArray[i][j];
-				System.out.println(resultArray[i][j] + "_" + "Summ = " + sumElemsInArray);
-			}
-		}
-		return resultArray;
+		MyArray myArray = new MyArray(arr);
+		myArray.getValues(myArray.getIntArray(arr));
 	}
 }

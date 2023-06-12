@@ -1,11 +1,11 @@
 public class ArrayException extends Exception{
 
-private String name;
+private String nameArray;
 private int iIndex;
 private int jIndex;
 
 	public String getName() {
-		return name;
+		return nameArray;
 	}
 
 	public int getiIndex() {
@@ -16,9 +16,9 @@ private int jIndex;
 		return jIndex;
 	}
 
-	public ArrayException(String message, String name, int iIndex, int jIndex) {
+	public ArrayException(String message, String nameArray, int iIndex, int jIndex) {
 		super(message);
-		this.name = name;
+		this.nameArray = nameArray;
 		this.iIndex = iIndex;
 		this.jIndex = jIndex;
 	}
