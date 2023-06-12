@@ -27,12 +27,12 @@ public class Main {
 									        {"1", "1", "1", "1"},
 									        {"1", "1", "1", "1"}}; // Создаем некорректный массив по количеству
 
-		 incorrectDataArr = new String[][] {{"abc", "1", "1", "1", "1"},
+		 incorrectDataArr = new String[][] {{"abc", "1", "1", "1"},
 									        {"1", "1", "1", "1"},
 									        {"1", "1", "1", "1"},
 									        {"1", "1", "1", "1"}}; // Создаем некорректный массив по содержимому
 
-		runProgram();
+		runProgram(); //TODO "Сделать в case проверки сначала на длину, затем закончить с блоком DataException, Доделать меню выбора
 	}
 
 	    public static void runProgram() {
@@ -57,6 +57,11 @@ public class Main {
                 // Выполнить исключение по количеству элементов
 	            System.out.println(incorrectSizeArr.length);
 	            showExceptionsSize(incorrectSizeArr);
+				break;
+			case 3:
+                // Выполнить исключение по количеству элементов
+	            MyArray incorrectDataArray = new MyArray(incorrectDataArr);
+				incorrectDataArray.checkDataArray(incorrectDataArr);
 				break;
             case 4:
                 // Выход из программы
