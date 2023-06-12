@@ -21,19 +21,20 @@ public class MyArray {
 
 
 
-//	private void checkDataArray(String[][] stringArray) {
-//		int check;
-//		for (int i = 0; i < stringArray.length; i++){
-//			for (int j = 0; j < stringArray.length; j++){
-//				try {
-//					check = Integer.parseInt(stringArray[i][j]);
-//				}
-//				catch (MyArrayDataException e){
-//
-//				}
-//			}
-//		}
-//	}
+	public void checkDataArray(String[][] stringArray){
+		for (String[] strings : stringArray) {
+			for (int j = 0; j < stringArray[0].length; j++) {
+				try {
+					Integer.parseInt(strings[j+1]);
+					throw new MyArrayDataException("Неверные данные!", j);
+				}
+				catch (MyArrayDataException e){
+					System.out.print(strings[j]);
+				}
+			}
+		}
+	}
+
 
 	public int[][] getIntArray(String[][] array) {
 		int[][] resultArray = new int[iSize][jSize];
