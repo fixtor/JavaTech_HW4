@@ -1,13 +1,10 @@
-import java.util.Arrays;
-
 public class MyArray {
 
 	private final int iSize = 4;
 	private final int jSize = 4;
 	public String[][] stringArray;
-
 	public MyArray(String[][] stringArray) {
-			this.stringArray = stringArray;
+		   this.stringArray = stringArray;
 	}
 
 	public void checkSizeArray(String[][] stringArray) throws MyArraySizeException {
@@ -20,16 +17,16 @@ public class MyArray {
 	}
 
 
-
-	public void checkDataArray(String[][] stringArray){
-		for (String[] strings : stringArray) {
+	public void checkDataArray(String[][] stringArray) throws MyArrayDataException{
+		int number = 0;
+		for (int i = 0; i < stringArray.length; i++) {
 			for (int j = 0; j < stringArray[0].length; j++) {
 				try {
-					Integer.parseInt(strings[j+1]);
-					throw new MyArrayDataException("Неверные данные!", j);
-				}
-				catch (MyArrayDataException e){
-					System.out.print(strings[j]);
+					number = Integer.parseInt(stringArray[i][j]);
+				} catch (NumberFormatException e){
+					System.out.println("Индекс: " + i + "." + j);
+					throw new MyArrayDataException("Неверные вводные данные по индексу", i, j);
+
 				}
 			}
 		}

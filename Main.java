@@ -27,8 +27,8 @@ public class Main {
 									        {"1", "1", "1", "1"},
 									        {"1", "1", "1", "1"}}; // Создаем некорректный массив по количеству
 
-		 incorrectDataArr = new String[][] {{"abc", "1", "1", "1"},
-									        {"1", "1", "1", "1"},
+		 incorrectDataArr = new String[][] {{"1", "1", "1", "1"},
+									        {"1", "ab", "1", "1"},
 									        {"1", "1", "1", "1"},
 									        {"1", "1", "1", "1"}}; // Создаем некорректный массив по содержимому
 
@@ -52,6 +52,7 @@ public class Main {
 				MyArray correctMyArray = new MyArray(correctArr);
 				int[][] mainArr = correctMyArray.getIntArray(correctArr);
 				correctMyArray.getValues(mainArr);
+	            System.out.println("\nСумма элементов массива: " + correctMyArray.sumValues(mainArr) );
                 break;
             case 2:
                 // Выполнить исключение по количеству элементов
@@ -61,20 +62,14 @@ public class Main {
 			case 3:
                 // Выполнить исключение по количеству элементов
 	            MyArray incorrectDataArray = new MyArray(incorrectDataArr);
-				incorrectDataArray.checkDataArray(incorrectDataArr);
+				try{
+					incorrectDataArray.checkDataArray(incorrectDataArr);
+				}
+				catch (MyArrayDataException e){
+					System.out.println(e.getMessage());
+				}
 				break;
-            case 4:
-                // Выход из программы
-                System.out.println("Вы выбрали вариант 3 - Выход");
-                System.exit(0);
-                break;
-            default:
-                System.out.println("Некорректный вариант. Пожалуйста, выберите 1, 2 или 3.");
-                // Повторно вызываем метод для выбора варианта
-                runProgram();
-                break;
         }
-
         scanner.close();
     }
 
